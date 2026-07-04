@@ -16,5 +16,8 @@
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
     "react-hook-form": "^7.80.0"
+  },
+  "devDependencies": {
+    "@types/geojson": "^7946.0.14"
   }
 }
