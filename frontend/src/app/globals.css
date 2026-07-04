@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default colors - can be overridden per-tenant via CSS variables */
+    --color-primary: 59 130 246;
+    --color-primary-50: 239 246 255;
+    --color-primary-500: 59 130 246;
+    --color-primary-900: 30 64 175;
+    --font-display: var(--font-lato), Lato, sans-serif;
+    --font-sans: var(--font-lato), Lato, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    letter-spacing: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .estate-button {
+    @apply inline-flex items-center justify-center bg-neutral-950 px-7 py-4 text-sm font-semibold uppercase text-white transition-colors hover:bg-[#b99b63] hover:text-neutral-950;
+    letter-spacing: 0;
+  }
+
+  .estate-button-light {
+    @apply inline-flex items-center justify-center bg-white px-7 py-4 text-sm font-semibold uppercase text-neutral-950 transition-colors hover:bg-[#b99b63];
+    letter-spacing: 0;
+  }
+
+  .estate-kicker {
+    @apply text-[12px] font-bold uppercase text-[#a1834c];
+    letter-spacing: 0;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(34px);
+    transition: opacity 900ms cubic-bezier(.22, 1, .36, 1), transform 900ms cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .page-transition {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background:
+      linear-gradient(90deg, transparent 0 48%, rgba(20, 20, 20, 0.09) 48% 52%, transparent 52% 100%),
+      #f8f8f8;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  .page-transition-active {
+    animation: route-veil 720ms cubic-bezier(.76, 0, .24, 1);
+  }
+
+  .goodwood-image {
+    overflow: hidden;
+  }
+
+  .goodwood-image img {
+    transition: transform 1200ms cubic-bezier(.22, 1, .36, 1), filter 1200ms cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .goodwood-image:hover img {
+    filter: saturate(0.92) contrast(1.03);
+    transform: scale(1.045);
+  }
+
+  .mobile-menu-link {
+    opacity: 0;
+    transform: translateX(18px);
+    transition: opacity 480ms cubic-bezier(.22, 1, .36, 1), transform 480ms cubic-bezier(.22, 1, .36, 1);
+  }
+
+  aside[aria-hidden="false"] .mobile-menu-link {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes route-veil {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  28% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  62% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}

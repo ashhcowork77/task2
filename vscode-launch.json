@@ -1,0 +1,43 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Payload: Attach to Node",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "restart": true,
+      "sourceMaps": true,
+      "runtimeArgs": ["--inspect"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Next.js: Chrome/Edge",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend",
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Next.js: Node Inspector",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "next",
+      "runtimeArgs": ["dev", "--inspect"],
+      "cwd": "${workspaceFolder}/frontend",
+      "console": "integratedTerminal",
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug All (Payload + Next.js)",
+      "configurations": ["Payload: Attach to Node", "Next.js: Node Inspector"],
+      "stopAll": true
+    }
+  ]
+}
