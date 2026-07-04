@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Scale, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -56,6 +57,35 @@ const MOCK_PROPERTIES: Property[] = [
 ];
 
 export default function ComparePage() {
+  return (
+    <Suspense fallback={<CompareLoadingState />}>
+      <CompareContent />
+    </Suspense>
+  );
+}
+
+function CompareLoadingState() {
+  return (
+    <main className="min-h-screen bg-gray-50">
+      <div className="mx-auto max-w-7xl px-5 py-12 md:px-10">
+        <div className="mb-8 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="h-10 w-10 rounded-lg border border-gray-200 bg-gray-100" />
+            <div>
+              <div className="h-8 w-48 rounded bg-gray-200" />
+              <div className="mt-2 h-4 w-32 rounded bg-gray-200" />
+            </div>
+          </div>
+        </div>
+        <div className="rounded-2xl bg-white p-6 shadow-sm">
+          <div className="h-64 animate-pulse rounded-lg bg-gray-100" />
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function CompareContent() {
   const searchParams = useSearchParams();
   const propertyIds = searchParams.get('properties')?.split(',') || [];
 

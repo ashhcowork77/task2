@@ -17,10 +17,8 @@ export const Media: CollectionConfig = {
     description: 'Upload images for your website. Accepted formats: JPEG, PNG, WebP, GIF. Maximum file size varies by server config.',
   },
   upload: {
-    // Local filesystem storage for MVP; switch staticURL for CDN (e.g. Cloudflare, Bunny, etc.)
+    // Local filesystem storage for MVP
     staticDir: 'public/media',
-    // Use CDN base URL from env var (e.g. https://cdn.yourdomain.com/media)
-    staticURL: process.env.CDN_BASE_URL ?? undefined,
     // Resize & convert images to WebP for smaller file sizes
     imageSizes: [
       {

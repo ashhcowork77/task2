@@ -59,7 +59,8 @@ export async function generateMetadata({
   };
 }
 
-function formatCurrency(value: number) {
+function formatCurrency(value?: number) {
+  if (!value) return null;
   return new Intl.NumberFormat('en-IN', {
     style: 'currency',
     currency: 'INR',
@@ -191,10 +192,12 @@ export default async function PropertyPage({
                 sizes="(max-width: 768px) 100vw, 58vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 bg-white/90 px-4 py-3 backdrop-blur-md">
-                <p className="text-[11px] font-semibold uppercase text-[#8b8b8b]">From</p>
-                <p className="text-2xl font-medium">{formatCurrency(property.nightlyPrice)}</p>
-              </div>
+              {property.nightlyPrice && (
+                <div className="absolute bottom-5 left-5 bg-white/90 px-4 py-3 backdrop-blur-md">
+                  <p className="text-[11px] font-semibold uppercase text-[#8b8b8b]">From</p>
+                  <p className="text-2xl font-medium">{formatCurrency(property.nightlyPrice)}</p>
+                </div>
+              )}
             </div>
             <div className="hidden gap-3 md:grid">
               <div className="goodwood-image relative bg-neutral-200">

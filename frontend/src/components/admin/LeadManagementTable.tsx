@@ -311,7 +311,7 @@ function LeadDetailModal({ lead, onClose }: { lead: Lead; onClose: () => void })
             <label className="block text-sm font-medium text-gray-700 mb-2">Update Status</label>
             <select
               value={selectedStatus}
-              onChange={(e) => setSelectedStatus(e.target.value)}
+              onChange={(e) => setSelectedStatus(e.target.value as typeof selectedStatus)}
               className="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
             >
               {Object.entries(STATUS_LABELS).map(([value, label]) => (

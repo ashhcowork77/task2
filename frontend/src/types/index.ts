@@ -45,7 +45,7 @@ export interface Property {
   maxGuests?: number;
   floor?: { current: number; total: number };
   facing?: string;
-  nightlyPrice: number;
+  nightlyPrice?: number;
   salePrice?: number;
   monthlyRent?: number;
   priceLabel?: string;

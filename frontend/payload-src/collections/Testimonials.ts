@@ -9,7 +9,6 @@ export const Testimonials: CollectionConfig = {
 
   admin: {
     useAsTitle: 'clientName',
-    description: 'Customer testimonials and reviews to showcase on the website',
     description: 'Manage client testimonials that appear on the website.',
     defaultColumns: ['clientName', 'rating', 'propertyType', 'status', 'createdAt'],
     listSearchableFields: ['clientName', 'quote'],
@@ -215,13 +214,13 @@ export const Testimonials: CollectionConfig = {
 
   indexes: [
     {
-      fields: { status: 1, featured: 1, featuredOrder: 1 },
+      fields: ['status', 'featured', 'featuredOrder'],
     },
     {
-      fields: { rating: -1 },
+      fields: ['rating'],
     },
     {
-      fields: { date: -1 },
+      fields: ['date'],
     },
   ],
 };

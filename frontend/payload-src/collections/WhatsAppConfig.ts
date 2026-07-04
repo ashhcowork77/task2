@@ -9,7 +9,6 @@ export const WhatsAppConfig: CollectionConfig = {
 
   // Single instance collection
   admin: {
-    description: 'Configure WhatsApp Business integration and chat widget settings',
     useAsTitle: 'whatsappNumber',
     description: 'Configure WhatsApp Business API or direct link settings for the chat widget.',
     defaultColumns: ['whatsappNumber', 'mode', 'enabled'],
@@ -45,12 +44,10 @@ export const WhatsAppConfig: CollectionConfig = {
         {
           label: 'Direct Link (Free)',
           value: 'direct_link',
-          description: 'Opens WhatsApp with pre-filled message. No API required.',
         },
         {
           label: 'WhatsApp Business API',
           value: 'business_api',
-          description: 'Full Business API integration with CRM features. Requires Facebook Business verification.',
         },
       ],
       admin: {

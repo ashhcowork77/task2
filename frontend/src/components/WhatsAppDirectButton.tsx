@@ -21,7 +21,7 @@ export function WhatsAppDirectButton({
   message,
   propertyReference,
   propertyTitle,
-  source = 'unknown',
+  source = 'property_detail',
   variant = 'primary',
   size = 'md',
   showLabel = true,

@@ -10,7 +10,8 @@ interface PropertyCardProps {
   className?: string;
 }
 
-function formatPrice(value: number, currency = 'INR') {
+function formatPrice(value?: number, currency = 'INR') {
+  if (!value) return null;
   return new Intl.NumberFormat('en-IN', {
     style: 'currency',
     currency,
@@ -57,10 +58,12 @@ export function PropertyCard({ property, priority = false, className }: Property
             loading={priority ? 'eager' : 'lazy'}
           />
           <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/55 to-transparent p-5 text-white">
-            <div>
-              <p className="text-[11px] font-semibold uppercase text-white/70">From</p>
-              <p className="text-2xl font-medium">{formatPrice(property.nightlyPrice, property.currency)}</p>
-            </div>
+            {property.nightlyPrice && (
+              <div>
+                <p className="text-[11px] font-semibold uppercase text-white/70">From</p>
+                <p className="text-2xl font-medium">{formatPrice(property.nightlyPrice, property.currency)}</p>
+              </div>
+            )}
             <span className="flex h-10 w-10 items-center justify-center bg-white/90 text-[#141414] backdrop-blur-md">
               <Maximize2 className="h-4 w-4" />
             </span>

@@ -9,7 +9,6 @@ export const Agents: CollectionConfig = {
 
   admin: {
     useAsTitle: 'name',
-    description: 'Real estate agent profiles with credentials and specializations',
     description: 'Manage real estate agent profiles displayed on the website.',
     defaultColumns: ['name', 'email', 'specialization', 'status', 'createdAt'],
     listSearchableFields: ['name', 'email', 'reraId', 'licenseNumber'],
@@ -337,14 +336,14 @@ export const Agents: CollectionConfig = {
 
   indexes: [
     {
-      fields: { status: 1, name: 1 },
+      fields: ['status', 'name'],
     },
     {
-      fields: { slug: 1 },
+      fields: ['slug'],
       unique: true,
     },
     {
-      fields: { email: 1 },
+      fields: ['email'],
       unique: true,
     },
   ],

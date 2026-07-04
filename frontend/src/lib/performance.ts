@@ -113,11 +113,11 @@ export function observeCLS(callback: MetricCallback): () => void {
 
   if ('PerformanceObserver' in window) {
     let clsValue = 0;
-    let clsEntries: LayoutShift[] = [];
+    let clsEntries: Array<{ value: number; hadRecentInput: boolean }> = [];
 
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        const layoutShift = entry as LayoutShift;
+        const layoutShift = entry as unknown as { value: number; hadRecentInput: boolean };
         if (!layoutShift.hadRecentInput) {
           clsValue += layoutShift.value;
           clsEntries.push(layoutShift);
@@ -149,7 +149,7 @@ export function observeINP(callback: MetricCallback): () => void {
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
         // Only report interactions with high waiting duration
-        const inpEntry = entry as InteractionID;
+        const inpEntry = entry as unknown as { interactionId: number };
         if (inpEntry.interactionId > 0) {
           callback(entry);
         }
@@ -157,7 +157,8 @@ export function observeINP(callback: MetricCallback): () => void {
     });
 
     try {
-      observer.observe({ type: 'event', buffered: true, durationThreshold: 16 });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      observer.observe({ type: 'event', buffered: true, durationThreshold: 16 } as any);
       return () => observer.disconnect();
     } catch {
       // Fallback to FID observation
@@ -189,7 +190,7 @@ export function reportWebVitals(): void {
 
   // CLS
   observeCLS((entry) => {
-    const cls = (entry as LayoutShift).value;
+    const cls = (entry as unknown as { value: number }).value;
     console.log('[Web Vitals] CLS:', cls);
     sendToAnalytics('CLS', cls);
   });

@@ -44,7 +44,9 @@ export function getPropertyMetadata({
     ? `₹${property.salePrice.toLocaleString('en-IN')}`
     : property.monthlyRent
       ? `₹${property.monthlyRent.toLocaleString('en-IN')}/month`
-      : `₹${property.nightlyPrice.toLocaleString('en-IN')}`;
+      : property.nightlyPrice
+        ? `₹${property.nightlyPrice.toLocaleString('en-IN')}`
+        : 'Price on Request';
 
   return {
     title: `${title} | ${priceDisplay} - Real Estate`,
@@ -205,10 +207,6 @@ export function getAgentMetadata(params: {
       description: description.slice(0, 200),
       siteName: 'Real Estate Agent',
       locale: 'en_IN',
-      profile: {
-        firstName: name.split(' ')[0],
-        lastName: name.split(' ').slice(1).join(' '),
-      },
     },
 
     twitter: {

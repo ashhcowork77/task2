@@ -24,7 +24,7 @@ import {
 import Link from 'next/link';
 import type { Property, PropertyMedia } from '@/types';
 import InquiryForm from './InquiryForm';
-import { MobileFloatingContactBar } from './MobileFloatingContactBar';
+import MobileFloatingContactBar from './MobileFloatingContactBar';
 import { POIOverlay } from './poi/POIOverlay';
 import { PropertyGallery } from './PropertyGallery';
 import PropertyShareButtons from './PropertyShareButtons';
