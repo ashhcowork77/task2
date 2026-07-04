@@ -58,7 +58,10 @@ export const AgentBranding: CollectionConfig = {
       required: true,
       admin: {
         description: 'Primary brand color in hex format (e.g., #1A1A1A). Used for buttons, links, and accents.',
-        pattern: '^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$',
+      },
+      validate: (val) => {
+        if (!val) return true;
+        return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(val) || 'Must be a valid hex color (e.g., #1A1A1A)';
       },
     },
     {
@@ -67,7 +70,10 @@ export const AgentBranding: CollectionConfig = {
       type: 'text',
       admin: {
         description: 'Secondary color for supporting elements. Should complement the primary color.',
-        pattern: '^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$',
+      },
+      validate: (val) => {
+        if (!val) return true;
+        return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(val) || 'Must be a valid hex color (e.g., #1A1A1A)';
       },
     },
 
