@@ -2,8 +2,10 @@ import type { CollectionConfig } from 'payload';
 
 export const Agents: CollectionConfig = {
   slug: 'agents',
-  label: 'Agents',
-  labelSingular: 'Agent',
+  labels: {
+    singular: 'Agent',
+    plural: 'Agents',
+  },
   description: 'Real estate agent profiles with credentials and specializations',
 
   admin: {

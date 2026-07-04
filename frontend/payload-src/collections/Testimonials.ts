@@ -2,8 +2,10 @@ import type { CollectionConfig } from 'payload';
 
 export const Testimonials: CollectionConfig = {
   slug: 'testimonials',
-  label: 'Testimonials',
-  labelSingular: 'Testimonial',
+  labels: {
+    singular: 'Testimonial',
+    plural: 'Testimonials',
+  },
   description: 'Customer testimonials and reviews to showcase on the website',
 
   admin: {

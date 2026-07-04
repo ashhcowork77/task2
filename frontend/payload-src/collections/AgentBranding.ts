@@ -2,8 +2,10 @@ import type { CollectionConfig } from 'payload';
 
 export const AgentBranding: CollectionConfig = {
   slug: 'agent-branding',
-  label: 'Agent Branding',
-  labelSingular: 'Agent Branding',
+  labels: {
+    singular: 'Agent Branding',
+    plural: 'Agent Branding',
+  },
   description: 'Configuration for agent/tenant branding settings',
 
   // Single instance collection (no create/update multiple times)

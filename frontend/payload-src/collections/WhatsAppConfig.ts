@@ -2,8 +2,10 @@ import type { CollectionConfig } from 'payload';
 
 export const WhatsAppConfig: CollectionConfig = {
   slug: 'whatsapp-config',
-  label: 'WhatsApp Configuration',
-  labelSingular: 'WhatsApp Configuration',
+  labels: {
+    singular: 'WhatsApp Configuration',
+    plural: 'WhatsApp Configurations',
+  },
   description: 'Configure WhatsApp Business integration and chat widget settings',
 
   // Single instance collection
