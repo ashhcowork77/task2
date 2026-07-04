@@ -6,7 +6,6 @@ export const AgentBranding: CollectionConfig = {
     singular: 'Agent Branding',
     plural: 'Agent Branding',
   },
-  description: 'Configuration for agent/tenant branding settings',
 
   // Single instance collection (no create/update multiple times)
   admin: {

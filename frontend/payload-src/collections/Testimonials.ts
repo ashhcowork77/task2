@@ -6,10 +6,10 @@ export const Testimonials: CollectionConfig = {
     singular: 'Testimonial',
     plural: 'Testimonials',
   },
-  description: 'Customer testimonials and reviews to showcase on the website',
 
   admin: {
     useAsTitle: 'clientName',
+    description: 'Customer testimonials and reviews to showcase on the website',
     description: 'Manage client testimonials that appear on the website.',
     defaultColumns: ['clientName', 'rating', 'propertyType', 'status', 'createdAt'],
     listSearchableFields: ['clientName', 'quote'],

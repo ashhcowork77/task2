@@ -6,10 +6,10 @@ export const Agents: CollectionConfig = {
     singular: 'Agent',
     plural: 'Agents',
   },
-  description: 'Real estate agent profiles with credentials and specializations',
 
   admin: {
     useAsTitle: 'name',
+    description: 'Real estate agent profiles with credentials and specializations',
     description: 'Manage real estate agent profiles displayed on the website.',
     defaultColumns: ['name', 'email', 'specialization', 'status', 'createdAt'],
     listSearchableFields: ['name', 'email', 'reraId', 'licenseNumber'],

@@ -6,10 +6,10 @@ export const WhatsAppConfig: CollectionConfig = {
     singular: 'WhatsApp Configuration',
     plural: 'WhatsApp Configurations',
   },
-  description: 'Configure WhatsApp Business integration and chat widget settings',
 
   // Single instance collection
   admin: {
+    description: 'Configure WhatsApp Business integration and chat widget settings',
     useAsTitle: 'whatsappNumber',
     description: 'Configure WhatsApp Business API or direct link settings for the chat widget.',
     defaultColumns: ['whatsappNumber', 'mode', 'enabled'],
